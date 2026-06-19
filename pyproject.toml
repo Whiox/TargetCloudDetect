@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "target_cloud_detect"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "tensorflow",
+    "Pillow",
+    "numpy",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["target_cloud_detect"]
+
+[tool.setuptools.package-data]
+target_cloud_detect = ["model/*.keras"]
