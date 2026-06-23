@@ -88,13 +88,12 @@ class Model:
         y = y_norm * h
         return int(x), int(y), float(conf)
 
-    def predict_from_bytes(self, bytes) -> Image.Image:
-        byte_stream = BytesIO(bytes)
+    def predict_from_bytes(self, file_bytes) -> Image.Image:
+        byte_stream = BytesIO(file_bytes)
         image = Image.open(byte_stream)
         x, y, conf = self.predict_x_y_conf(image)
         result = self.draw_thought_cloud(image, x=x, y=y)
         return result
-
 
     def predict_from_file(self, file) -> Image.Image:
         image = Image.open(file)
